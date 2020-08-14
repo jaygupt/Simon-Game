@@ -1,4 +1,5 @@
 var gamePattern = [];
+var userClickedPattern = [];
 var buttonColors = ["red", "blue", "green", "yellow"];
 
 function nextSequence() {
@@ -7,9 +8,30 @@ function nextSequence() {
 
   // selects random color from buttonColors
   var randomChosenColor = buttonColors[randomNumber];
-  console.log(randomChosenColor);
+
+  // flash the button with the color of randomChosenColor
+  $("#" + randomChosenColor).fadeOut(75).fadeIn(75);
+
+  // play audio of chosen button color
+  // var audioOfColor = new Audio("sounds/" + randomChosenColor + ".mp3");
+  // audioOfColor.play();
+  playSound(randomChosenColor); 
 
   // adds the randomColor to the end of gamePattern
   gamePattern.push(randomChosenColor);
-  console.log(gamePattern);
+}
+
+$(".btn").click(function() {
+  // userChosencolor = button color that user has clicked
+  var userChosenColor = this.id;
+
+  userClickedPattern.push(userChosenColor);
+  console.log(userClickedPattern);
+});
+
+// input: name of the color
+// output: sound of the color
+function playSound(name) {
+  var audioOfColor = new Audio("sounds/" + name + ".mp3");
+  audioOfColor.play();
 }
