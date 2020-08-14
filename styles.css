@@ -5,9 +5,10 @@ body {
 
 #level-title {
   font-family: 'Press Start 2P', cursive;
-  font-size: 3rem;
-  margin:  5%;
+  font-size: 2.8rem;
+  margin: 5% 0;
   color: #FEF2BF;
+  white-space: nowrap;
 }
 
 .container {
